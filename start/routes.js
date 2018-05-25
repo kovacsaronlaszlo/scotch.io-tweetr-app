@@ -53,3 +53,25 @@ Route.delete('/unfollow/:id', 'UserController.unFollow');
 
 // timeline
 Route.get('/timeline', 'UserController.timeline');
+
+// tweet
+Route.post('/tweet', 'TweetController.tweet').middleware(['auth:jwt']);
+
+// show tweet
+Route.get('/tweets/:id', 'TweetController.show');
+
+// reply tweet
+Route.post('/tweets/reply/:id', 'TweetController.reply').middleware(['auth:jwt']);
+
+// favorize tweet
+Route.group(() => {
+  Route.post('/create', 'FavoriteController.favorite')
+})
+  .prefix('favorites')
+  .middleware(['auth:jwt']);
+
+// delete favorite tweet
+Route.delete('/destroy/:id', 'FavoriteController.unFavorite');
+
+// delete tweet
+Route.delete('/tweets/destroy/:id', 'TweetController.destroy').middleware(['auth:jwt']);

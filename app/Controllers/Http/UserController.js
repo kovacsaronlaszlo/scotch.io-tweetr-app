@@ -23,7 +23,7 @@ class UserController {
     } catch(error) {
       return response.status(400).json({
         status: 'error',
-        message: 'There was a problem creating the user, please try again later.'
+        message: 'Probléma történt a felhasználó létrehozásakor, próbálkozzon később.'
       })
     }
 
@@ -44,7 +44,7 @@ class UserController {
     } catch (error) {
       response.status(400).json({
         status: 'error',
-        message: 'Invalid email/password'
+        message: 'Hibár e-mail vagy jelszó!'
       })
     }
   }
@@ -90,13 +90,13 @@ class UserController {
 
       return response.json({
         status: 'success',
-        message: 'Profile updated!',
+        message: 'Profil frissült!',
         data: user
       })
     } catch (error) {
       return response.status(400).json({
         status: 'error',
-        message: 'There was a problem updating profile, please try again later.'
+        message: 'Probléma történt a profil frissítésekor, próbálkozzon később!'
       })
     }
   }
@@ -127,7 +127,7 @@ class UserController {
 
     return response.json({
       status: 'success',
-      message: 'Password updated!'
+      message: 'Jelszó frissült!'
     })
   }
 
@@ -158,7 +158,7 @@ class UserController {
     } catch (error) {
       return response.status(404).json({
         status: 'error',
-        message: 'User not found'
+        message: 'A felhasználó nem található'
       })
     }
   }
